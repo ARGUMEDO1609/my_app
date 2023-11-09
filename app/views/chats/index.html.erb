@@ -1,0 +1,11 @@
+  <%= turbo_frame_tag 'chats_controller' do %>
+    <main class="flex w-full h-screen bg-[#ede9fe]"> 
+     <%= render 'shared/side_bar' %>
+
+       <section  class= "flex flex-col items-center justify-center gap-5 h-screen w-full">  
+          <%= image_tag("01.png", width: 200) %>
+           <h1 class="font-bold text-4xl text-black my-4">VIOLETH CHAT</h1>
+         <p class="text-center font-semibold text-black">CHAT LIVE</p>
+      </section>
+    </main>
+ <% end %>

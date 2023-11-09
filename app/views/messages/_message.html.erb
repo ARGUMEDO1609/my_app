@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "message_#{message.id}", class: 'bg-gray-200 px-3 py-2 flex justify-between rounded items-center gap-2 shadow' do %>
+  <div class="flex gap-1">
+    <span class="text-gray-600 text-sm"><%= message.user.email %></span>
+    <span class="font-semibold text-sm"><%= message.message %></span>
+  </div>
+
+  <div class="flex gap-3">
+    <%= link_to edit_chat_message_path(message, chat_id:message.chat), class: 'text-sm font-medium bg-sky-700 text-white py-1 px-3 rounded' do %>
+      Edit
+    <% end %>
+    
+    <%= button_to chat_message_path(message.chat, message), class: 'text-sm font-medium bg-red-800 pulse text-white py-1 px-3 rounded', method: :delete do %>
+      Delete
+    <% end %>
+  </div> 
+<% end %>

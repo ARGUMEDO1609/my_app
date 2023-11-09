@@ -1,0 +1,31 @@
+<section class="flex flex-col gap-2 mt-10 items-center justify-center" id="chat_show_<%= chat.id %>">
+  <div class="flex flex-col">
+    <h3 class="font-bold text-3xl text-black"><%= chat.name %> - Chat</h3>
+    <span class="text-black font-semibold">Users in this chat: </span>
+  </div>
+
+  <section class="flex gap-5">
+    <div class="py-2 px-10 flex flex-col gap-1 items-center border-black border rounded-lg my-2 shadow-lg w-96">
+      <h3 class="text-black font-semibold text-center">Users in this chat</h3>
+
+      <% User.all.each do |user| %>
+        <% next unless chat.users.include?(user) %>
+        <div class="rounded underline text-black my-1 font-semibold text-sm">
+          <%= user.email %>
+        </div>
+      <% end %>
+    </div>
+    <div class="py-2 px-10 flex flex-col gap-1 items-center border-black border rounded-lg my-2 shadow-lg w-96">
+      <h3 class="text-black font-semibold text-center">Add users</h3>
+
+      <% User.all.each do |user| %>
+        <% next if chat.users.include?(user) %>
+        <%= button_to add_user_path(user_id: user.id, chat_id: chat.id), method: :post, remote: true, id: "add_user#{user.id}" do %>
+          <div class="rounded underline text-black my-1 font-semibold text-sm">
+            <%= user.email %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</section>

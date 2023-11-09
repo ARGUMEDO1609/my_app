@@ -1,0 +1,6 @@
+<%= turbo_stream_from 'users_chats_channel'%>
+<%= turbo_stream_from 'chat_details_channel'%>
+   <nav class="bg-orange-400 w-60 flex flex-col items-center justify-between border border-gray">
+   <%= render 'shared/user_chats' %>
+  <%= render 'shared/create_chat' %>
+</nav>

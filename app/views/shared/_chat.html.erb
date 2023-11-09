@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "chat_#{chat.id}" do %>
+ <div class="bg-blue-600 text-black font-semibold text-black">
+   <%= link_to chat_path(chat), class:'font-semibold text-black text-sm', data: {turbo_frame: 'chats_controller'} do %>
+     <%= chat.name %>
+      <% end %>
+     <%= link_to'-Edit Chat', edit_chat_path(chat)%>
+ </div>
+<% end %>

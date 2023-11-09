@@ -1,0 +1,8 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Log in", new_session_path(resource_name),class: 'bg-gradient-to-r from-red-400 to-blue-500 rounded p-3 text-black font-semibold animate-pulse' %><br />
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", new_registration_path(resource_name),class: 'bg-gradient-to-r from-red-400 to-blue-500 rounded p-3 text-black font-semibold animate-pulse' %><br />
+<% end %>
+

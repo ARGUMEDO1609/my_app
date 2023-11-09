@@ -1,0 +1,29 @@
+<main class="bg-[#60a5fa] h-screen flex flex-col justify-center items-center gap-10">
+  <section class="flex flex-col items-center gap-1 bg-[#87CEEB] p-6 rounded-md">
+    <%= image_tag("01.png", width: 100) %>
+    <h1 class="font-bold text-4xl text-black my-4">VIOLETH CHAT</h1>
+    <p class="text-center font-semibold text-black">The best store at your fingertips</p>
+  </section>
+
+  <section class="flex flex-col items-center gap-2 w-96">  
+    <h2 class="text-black font text-2xl mb-5">Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:'flex flex-col') do |f| %>
+      <div class="flex gap-1 my-2 items-center">
+        <%= f.label :email, class: "text-black font-semibold text-sm w-24" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm font-medium rounded w-full"  %>
+      </div>
+
+      <div class="flex gap-1 my-2 items-center">
+        <%= f.label :password, class: "text-black font-semibold text-sm w-24"%>
+        <%= f.password_field :password, autocomplete: "current-password", class: "text-sm font-medium rounded w-full" %>
+      </div>
+
+      <div class="flex gap-1 my-5 items-center justify-center">
+        <%= f.submit "Log In", data: {turbo: false}, class: 'bg-gradient-to-r from-green-400 to-blue-500 rounded p-3 text-black font-semibold animate-pulse'  %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </section>
+</main>

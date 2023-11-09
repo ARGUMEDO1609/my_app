@@ -1,0 +1,25 @@
+<div data-controller="form"> 
+<%= form_with(model: chat, class: "flex flex-col my-3 w-full", data: { controller: 'form', action:'submit->form#resetComponent'}) do |form| %>
+  <% if chat.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
+
+      <ul>
+        <% chat.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col gap-1 justify-center">
+    <%= form.label :name, class:"text-black font-semibold text-sm" %>
+    <%= form.text_field :name, class: "w-full rounded border border-gray-200 font-semibold text-xs" %>
+  </div>
+
+  <div class="flex mt-2 gap-2 justify-end">
+    <%= form.submit class: "cursor-pointer p-2 text-sm text-white font-semibold bg-green-600 rounded" %>
+    <%= link_to 'Cancel', :back, class: "cursor-pointer p-2 text-sm text-white font-semibold bg-red-600 rounded" %>
+  </div>
+<% end %>
+ </div>

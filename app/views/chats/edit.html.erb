@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "chat_#{@chat.id}" do %>
+  <h4 class="bg-blue-300 font-medium text-base text-black text-center">Edit chat</h4>
+  <%= render "form", chat: @chat %>
+<% end %>

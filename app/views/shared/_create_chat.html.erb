@@ -1,0 +1,8 @@
+<%= turbo_frame_tag 'chat_form' do %>
+<section class="flex flex-col items-center justify-center gap-2 mb-5">
+<h3 class="text-black font-semibold text-sm text-center">want to start a new conversation</h3>
+<%= link_to new_chat_path, id: 'new_chat', class:'px-3 py-1 bg-green-700 text- font-semibold text-sm' do %>
+Create new chat
+<% end %>
+</section>
+<% end %>
